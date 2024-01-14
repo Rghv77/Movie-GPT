@@ -20,4 +20,4 @@
 
 - Movie-GPT
      -Search Bar
-     -Movie Suggestions              
+     -Movie Suggestions             
