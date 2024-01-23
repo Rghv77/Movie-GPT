@@ -1,4 +1,4 @@
-import { BG_URL } from "../utils/constants";
+import { BG_URL, USER_AVATAR } from "../utils/constants";
 import { useRef, useState } from "react";
 import Header from "./Header";
 import { CheckValid } from "../utils/CheckValid";
@@ -26,7 +26,7 @@ const Login=()=>{
   .then((userCredential) => {
     const user=userCredential.user;
     updateProfile(user, {
-      displayName: name.current.value, photoURL: "https://www.hartz.com/wp-content/uploads/2022/04/small-dog-owners-1.jpg"
+      displayName: name.current.value, photoURL: USER_AVATAR
     }).then(() => {
       // Profile updated!
       const {email,displayName,uid,photoURL}=user;
