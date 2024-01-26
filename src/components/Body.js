@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import Browse from "./Browse";
 import Login from "./Login";
 import { RouterProvider } from "react-router-dom";
+import FavouriteMovies from "./FavouriteMovies";
+import MovieDetails from "./MovieDetails";
 
 const Body = () => {
-
   const appRouter = createBrowserRouter([
     {
       path: "/",
@@ -14,10 +15,15 @@ const Body = () => {
       path: "/browse",
       element: <Browse />,
     },
+    {
+      path:"/favourite_movies",
+      element:<FavouriteMovies/>,
+    },
+    {
+      path:"/movie/:id",
+      element:<MovieDetails/>,
+    },
   ]);
-
-   
-
 
   return (
     <div>
@@ -25,7 +31,4 @@ const Body = () => {
     </div>
   );
 };
-
-
-
 export default Body;
