@@ -38,6 +38,10 @@
 - GPT Search Page
 - GPT Search Bar
 - Multi Language Feature in App
+- Added the MovieDetails && Favorite_list Page && improving overall Tailwind
+- Added TrailerVideo in MainDetails Page
+- fixing small error and UX
+- focused on UI
 
 
 
