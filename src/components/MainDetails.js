@@ -2,16 +2,15 @@ import { useSelector } from "react-redux";
 import { IMG_CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addFavouriteMovie } from "../utils/favouriteSlice";
-import { togglePopUp } from "../utils/configSlice";
 import { useState } from "react";
 
 
 const MainDetails=()=>{
   const dispatch=useDispatch();
-  const [soundOn,setSoundOn]=useState(false);
+  const [mute,setMute]=useState(false);
   const trailerVideo = useSelector((store) => store.movies?.trailerVideo);
     const movieDetails=useSelector((store)=>store.movies.movieDetails)
-    const popUp=useSelector((store)=>store.config.popUp)
+    const [popUp,setPopUp]=useState(false);
    
     
     
@@ -21,7 +20,7 @@ const MainDetails=()=>{
       }
    
     const openPopUp=()=>{
-        dispatch(togglePopUp());        
+        setPopUp(!popUp);        
     }
     return <>
     <div className="relative aspect-video bg-gradient-to-br  from-black">
@@ -31,7 +30,7 @@ const MainDetails=()=>{
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo?.key +
-          "?&autoplay=1&mute="+soundOn+"&playlist="+trailerVideo?.key+"&loop=1&controls=0"
+          "?&autoplay=1&mute="+mute+"&playlist="+trailerVideo?.key+"&loop=1&controls=0"
         }
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -49,17 +48,18 @@ const MainDetails=()=>{
     <div className="flex">
               <button onClick={handleAddButtonClick} className=" py-2 px-4  my-4 font-bold bg-orange-500 hover:bg-white text-black  rounded-lg font-mono">Add to Favourite</button>    
               <button onClick={openPopUp} className=" py-2 px-4  m-4 font-bold bg-red-500 hover:bg-white text-black  rounded-lg font-mono">{popUp?"Close Video":"Watch Trailer"} 📽️</button>   
-              {popUp&&<button onClick={()=>{setSoundOn(!soundOn)}} className=" py-2 px-4  m-4 font-bold bg-green-500 hover:bg-white text-black  rounded-lg font-mono">{soundOn?"Turn Off Sound":"Turn On Sound"} 🔊</button>}   
+              {popUp&&<button onClick={()=>{setMute(!mute)}} className=" py-2 px-4  m-4 font-bold bg-green-500 hover:bg-white text-black  rounded-lg font-mono">{mute?"Turn On Sound":"Turn Off Sound"} 🔊</button>}   
               </div>
               <div className="w-20 flex flex-col items-center justify-center bg-blue-500 rounded-full mt-4 h-20"><div className="text-white font-bold font-mono">{movieDetails.vote_average}</div> <div>⭐⭐⭐</div>
 </div>
               
- 
-    <p className="text-white text-2xl mb-2  mt-8 font-bold font-mono">OverView:</p>
+ <div className="hidden md:block">
+    <p className=" text-white text-2xl mb-2  mt-8 font-bold font-mono">OverView:</p>
 
     <p className="text-white mt-0  md:mt-2 h-16 overflow-y-scroll font-bold font-mono scrollbar-none">{movieDetails.overview
 ?movieDetails.overview
 :"Overview"}</p>
+</div>
 
 
 </div>

@@ -7,17 +7,14 @@ const favouriteSlice=createSlice({
     },
     reducers:{
         addFavouriteMovie:(state,action)=>{
-            const existingMovie = state.item.find((movie) => movie.id === action.payload.id);
-            if(!existingMovie)
-            state.item.push(action.payload);
+            const existingMovie = state?.item?.find((movie) => movie.id === action.payload.id);
+            if(!existingMovie) {state?.item?.push(action.payload);}
         },
         removeFavouriteMovie:(state,action)=>{
-            return state.item.filter((movie)=>{
-                return movie.id!==action.payload.id;
-            })
+            state.item=state.item.filter((movie)=> movie.id!==action.payload);
         },
-        clearFavouriteMovie:()=>{
-            return [];
+        clearFavouriteMovie:(state)=>{
+            state.item=[];
         }
     }
 });

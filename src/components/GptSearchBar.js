@@ -2,8 +2,9 @@ import openai from "../utils/openai";
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
-import { API_OPTIONS } from "../utils/constants";
+import { API_OPTIONS,SUPPORTED_LANGUAGES } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
+import { changeLanguage } from "../utils/configSlice";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
@@ -60,27 +61,50 @@ const GptSearchBar = () => {
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
   };
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e.target.value));
+  };
 
   return (
-    <div className="pt-[35%] md:pt-[10%] flex justify-center">
+    <div className="flex items-center justify-center mt-8">
+
       <form
-        className="w-full md:w-1/2 bg-black grid grid-cols-12"
+        className="relative"
         onSubmit={(e) => e.preventDefault()}
       >
+     
         <input
           ref={searchText}
           type="text"
-          className=" p-4 m-4 col-span-9"
+          className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 transition duration-300 w-64 sm:w-96"
           placeholder={lang[langKey].gptSearchPlaceholder}
         />
         <button
-          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className="absolute right-0 top-0 h-full px-4 text-white bg-blue-500 rounded-r-md hover:bg-blue-600 focus:outline-none transition duration-300"
           onClick={handleGptSearchClick}
         >
           {lang[langKey].search}
         </button>
+        
+       
+        
       </form>
-    </div>
+      <div className="ml-4"> 
+      <select
+              className="px-4 py-2 bg-slate-400 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              onChange={handleLanguageChange}
+            >
+              {SUPPORTED_LANGUAGES.map((lang) => (
+                <option key={lang.identifier} value={lang.identifier}>
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+     </div>
+     </div>
+
+
+  
   );
 };
 export default GptSearchBar;

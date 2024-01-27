@@ -4,6 +4,7 @@ import Login from "./Login";
 import { RouterProvider } from "react-router-dom";
 import FavouriteMovies from "./FavouriteMovies";
 import MovieDetails from "./MovieDetails";
+import GptSearch from "./GptSearch";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
@@ -22,6 +23,10 @@ const Body = () => {
     {
       path:"/movie/:id",
       element:<MovieDetails/>,
+    },
+    {
+      path:"/gpt_search",
+      element:<GptSearch/>,
     },
   ]);
 
