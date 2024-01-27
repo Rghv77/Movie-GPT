@@ -7,7 +7,6 @@ import { auth } from "../utils/Firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
-import { IoSearch } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
 
 const Header = () => {
@@ -58,7 +57,7 @@ const Header = () => {
 
   return (
     <div className=" fixed top-0 z-50 bg-slate-400  shadow-md w-screen px-8 py-2 bg-gradient-to-r from-black  flex flex-col md:flex-row justify-between">
-      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
+      <Link to="/"><img className="w-44" src={LOGO} alt="logo" /></Link>
       {user && (
         <div className="flex p-2 justify-between">
           {showGptSearch && (
@@ -74,17 +73,16 @@ const Header = () => {
             </select>
           )}
           <button
-            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg flex"
+            className="md:py-2 md:px-4 mr-4 md:mx-4  md:my-2 md:bg-purple-800   text-white md:rounded-lg font-mono"
             onClick={handleGptSearchClick}
           >
-            <IoSearch />
-            {showGptSearch ? " Homepage" : " GPT Search"}
+           🔎{showGptSearch ? " Homepage" : " GPT Search"}
           </button>
           <Link to="/favourite_movies">
           <button
-            className="py-2 px-4 mx-4 my-2 font-bold bg-orange-500 hover:bg-white text-black  rounded-lg"
+            className="md:py-2 md:px-4 mr-4 md:mx-4 md:my-2  md:bg-orange-500 md:hover:bg-white text-white  md:rounded-lg font-mono"
           >
-            My Movies ({favList.length})
+            🛒 My Movies ({favList.length})
           </button>
           </Link>
           <img
@@ -92,7 +90,7 @@ const Header = () => {
             alt="usericon"
             src={user?.photoURL}
           />
-          <button onClick={handleSignOut} className="font-bold text-white flex flex-col items-center justify-center ml-2 ">
+          <button onClick={handleSignOut} className="font-bold text-white flex flex-col items-center justify-center ml-2 font-mono ">
           <MdLogout /> sign out
           </button>
         </div>

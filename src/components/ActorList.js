@@ -7,11 +7,11 @@ const ActorList=()=>{
     const cast=movieCredits.cast;
     return <>
     <div className="px-6 ">
-      <h1 className="text-lg md:text-3xl py-4">Cast</h1>
+      <h1 className="text-lg md:text-3xl py-4 text-white font-serif">Cast</h1>
       <div className="flex  overflow-x-scroll">
     {
         cast.map((actor)=>{            
-            return <CastCard profile={actor.profile_path}/>
+            return <CastCard profile={actor.profile_path} key={actor.id}/>
         })
     }
     </div>
