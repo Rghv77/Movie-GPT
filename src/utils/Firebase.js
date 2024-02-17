@@ -2,19 +2,20 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth} from "firebase/auth";
+// Import the functions you need from the SDKs you need
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBfg02pQKFuscJEqMMS2ufrCLAV3RqM4Bo",
-  authDomain: "moviegpt-a4f47.firebaseapp.com",
-  projectId: "moviegpt-a4f47",
-  storageBucket: "moviegpt-a4f47.appspot.com",
-  messagingSenderId: "178177959956",
-  appId: "1:178177959956:web:6c8688985dc63cf189df01",
-  measurementId: "G-18Y69384YE"
+  apiKey: "AIzaSyDhbKOUbyyHAX6JXzk9nAY6Gd57cqVRXKk",
+  authDomain: "watchify-114d9.firebaseapp.com",
+  projectId: "watchify-114d9",
+  storageBucket: "watchify-114d9.appspot.com",
+  messagingSenderId: "275740611020",
+  appId: "1:275740611020:web:f896c54d502455d22e8d69",
+  measurementId: "G-C5XKHFVT66"
 };
 
 // Initialize Firebase

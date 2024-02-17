@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import useMovieDetails from "../hooks/useMovieDetals";
 import { useSelector } from "react-redux";
@@ -11,7 +12,7 @@ import useMovieTrailer from "../hooks/useMovieTrailer";
  
 const MovieDetails=()=>{   
     
-    const {id}=useParams();
+  const {id}=useParams();
     useMovieDetails(id);
     useMovieCredits(id);
     useSimilarMovies(id);

@@ -21,7 +21,7 @@ const useSimilarMovies = (id) => {
 
   useEffect(() => {
     getSimilarMovies();
-  }, []);
+  }, [id]);
 };
 
 export default useSimilarMovies;

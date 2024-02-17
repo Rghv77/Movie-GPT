@@ -66,10 +66,10 @@ const GptSearchBar = () => {
   };
 
   return (
-    <div className="flex items-center justify-center mt-8">
+    <div className="flex items-center justify-center mt-8 ">
 
       <form
-        className="relative"
+        className="relative mt-20"
         onSubmit={(e) => e.preventDefault()}
       >
      
@@ -89,7 +89,7 @@ const GptSearchBar = () => {
        
         
       </form>
-      <div className="ml-4"> 
+      <div className="ml-4 mt-20"> 
       <select
               className="px-4 py-2 bg-slate-400 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
               onChange={handleLanguageChange}

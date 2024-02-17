@@ -59,7 +59,7 @@ const Header = () => {
   
 
   return (
-    <Disclosure as="nav" className="bg-gray-800 z-50">
+    <Disclosure as="nav" className=" bg-gray-800 z-50 fixed top-0 w-screen">
     {({ open }) => (
       <>
         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -79,11 +79,7 @@ const Header = () => {
             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
               <Link to="/browse">
               <div className="flex flex-shrink-0 items-center">
-                <img
-                  className="h-8 w-auto"
-                  src={LOGO}
-                  alt="Your Company"
-                />
+                <div className="h-8 w-auto text-xl font-extrabold text-red-500 font-serif shadow-lg shadow-red-700">Watchify</div>
               </div>
               </Link>
               <div className="hidden sm:ml-6 sm:block">
@@ -105,23 +101,24 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            {user && <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
              
 
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
-                <div>
+                <div className="flex flex-col items-center"> 
                   <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src={USER_AVATAR}
+                      src="https://i.pinimg.com/474x/5d/69/42/5d6942c6dff12bd3f960eb30c5fdd0f9.jpg"
                       alt=""
                     />
                   </Menu.Button>
+                  <div className="text-white font-bold">Hey👋, {user?.displayName}</div>
                 </div>
-                <Transition
+               <Transition
                   as={Fragment}
                   enter="transition ease-out duration-100"
                   enterFrom="transform opacity-0 scale-95"
@@ -147,7 +144,7 @@ const Header = () => {
                   </Menu.Items>
                 </Transition>
               </Menu>
-            </div>
+            </div>}
           </div>
         </div>
 

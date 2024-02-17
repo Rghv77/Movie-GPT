@@ -15,7 +15,7 @@ const useMovieCredits=(id)=>{
 
 useEffect(()=>{
     getMovieCredits();
-},[])
+},[id])
 }
 
 export default useMovieCredits;

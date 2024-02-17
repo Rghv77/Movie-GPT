@@ -38,10 +38,23 @@
 - GPT Search Page
 - GPT Search Bar
 - Multi Language Feature in App
+- Get OpenAi API Key
 - Added the MovieDetails && Favorite_list Page && improving overall Tailwind
 - Added TrailerVideo in MainDetails Page
 - fixing small error and UX
 - focused on UI
+- Improving the backgorund of WatchList, Signup and search
+- GPT Search API Call
+- Fetch gptMovieSuggestions from TMDB
+- created gptSlice added data
+- Reused Movie List Component to make movie Suggestion Container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+
+<!-- - Similar Movie Click Error Solved
+- Google email login -->
+
 
 
 

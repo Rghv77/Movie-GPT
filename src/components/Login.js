@@ -9,7 +9,7 @@ import {
 import { auth } from "../utils/Firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { BG_URL, USER_AVATAR } from "../utils/constants";
+import {  USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -83,12 +83,13 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
-        <img className="h-screen w-screen" src={BG_URL} alt="logo" />
+      <div className="absolute w-screen h-screen bg-gradient-to-br from from-black via-slate-400 to-red-400">
+
+        
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-full md:w-3/12 absolute px-12 bg-black my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-3/4 md:w-3/12 absolute px-12 bg-black my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -123,7 +124,7 @@ const Login = () => {
         </button>
         <p className="py-4 cursor-pointer hover:underline" onClick={toggleSignInForm}>
           {isSignInForm
-            ? "New to Netflix? Sign Up Now"
+            ? "New to Watchify? Sign Up Now"
             : "Already registered? Sign In Now."}
         </p>
       </form>

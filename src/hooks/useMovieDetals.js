@@ -15,6 +15,6 @@ const useMovieDetails=(id)=>{
 
 useEffect(()=>{
     getMovieDetails();
-},[])}
+},[id])}
 
 export default useMovieDetails;
